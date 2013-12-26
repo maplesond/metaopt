@@ -108,7 +108,7 @@ public class Problems {
      * x+y <= 75
      *
      * With x,y being integers
-     * @return
+     * @return A linear mixed integer problem
      */
     public static Problem mixedIntegerLinear2() {
 

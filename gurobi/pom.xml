@@ -17,14 +17,107 @@
     <name>Phylogenetics Tool Suite: Gurobi Optimiser</name>
 
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java-version>1.7</java-version>
+    </properties>
+
+    <!-- Licensing -->
+    <licenses>
+        <license>
+            <name>GNU General Public License</name>
+            <url>http://www.gnu.org/licenses/gpl.html</url>
+        </license>
+    </licenses>
+
+    <!-- Developer Listing -->
+    <developers>
+
+        <developer>
+            <id>maplesod</id>
+            <name>Daniel Mapleson</name>
+            <email>daniel.mapleson@tgac.ac.uk</email>
+            <organization>TGAC</organization>
+            <organizationUrl>http://www.tgac.ac.uk</organizationUrl>
+            <roles>
+                <role>developer</role>
+            </roles>
+        </developer>
+
+    </developers>
+
+    <build>
+        <plugins>
+
+            <!-- Compiler settings -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>${java-version}</source>
+                    <target>${java-version}</target>
+                    <showDeprecation>true</showDeprecation>
+                    <showWarnings>true</showWarnings>
+                    <compilerArgument>-Xlint:unchecked</compilerArgument>
+                </configuration>
+            </plugin>
+
+
+            <!-- Unit testing setup (no integration tests) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.14.1</version>
+            </plugin>
+
+            <!-- Creates a jar file containing the sources -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>create-sources-jar</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <!-- Creates javadoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <executions>
+                    <execution>
+                        <id>create-javadoc-jar</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+    </build>
     <dependencies>
 
 
+        <!-- Testing -->
+
         <dependency>
-            <groupId>uk.ac.uea.cmp.phygen</groupId>
-            <artifactId>core</artifactId>
-            <version>1.0</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
         </dependency>
+
+        <!-- Meta inf services -->
 
         <dependency>
             <groupId>org.kohsuke.metainf-services</groupId>
@@ -36,11 +129,8 @@
 
         <!-- Optimisers -->
 
-        <!-- We cannot assume that the user has gurobi installed.  And they probably don't have gurobi in their local
-             maven repository anyway.  If you do have gurobi installed, then uncomment this block, and make sure you've
-             manually added the gurobi jar into your local maven repository with this command (edit where appropriate):
-             "mvn install:install-file -Dfile=<path-to-gurobi-jar> -DgroupId=gurobi -DartifactId=gurobi \
-             -Dversion=<gurobi-version> -Dpackaging=jar" -->
+        <!-- We assume you already have gurobi installed.  You must also have run the setup scripts provided to install
+         your gurobi.jar into your local maven repository. -->
 
         <dependency>
             <groupId>gurobi</groupId>
