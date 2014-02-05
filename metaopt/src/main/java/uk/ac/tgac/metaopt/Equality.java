@@ -9,12 +9,31 @@ package uk.ac.tgac.metaopt;
  */
 public class Equality {
 
+    public static final double DEFAULT_TOLERANCE = 0.001;
+
     public static boolean approxEquals(double actual, double expected) {
-        return approxEquals(actual, expected, 0.001);
+        return approxEquals(actual, expected, DEFAULT_TOLERANCE);
     }
 
     public static boolean approxEquals(double actual, double expected, double tolerance) {
         double val = Math.abs(actual - expected);
         return val < tolerance;
+    }
+
+    public static boolean approxEquals(double[] actual, double[] expected) {
+        return approxEquals(actual, expected, DEFAULT_TOLERANCE);
+    }
+
+    public static boolean approxEquals(double[] actual, double[] expected, double tolerance) {
+
+        if (actual == null || expected == null || actual.length != expected.length)
+            return false;
+
+        for(int i = 0; i < actual.length; i++) {
+            if (!approxEquals(actual[i], expected[i], tolerance))
+                return false;
+        }
+
+        return true;
     }
 }
