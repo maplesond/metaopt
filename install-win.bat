@@ -2,11 +2,11 @@
 echo Installing JOptimizer...
 CD joptimizer-bundle
 call install-win.bat
-CD ..;
+CD ..
 
 echo Installing MetaOpt...
 CD metaopt
-call mvn clean install
+call %m2_home%\bin\mvn clean install
 CD ..
 
 IF "%~1"=="--with-gurobi" (
