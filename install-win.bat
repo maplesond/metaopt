@@ -1,26 +1,24 @@
 @ECHO OFF
 echo Installing JOptimizer...
-call cd joptimizer-bundle
+CD joptimizer-bundle
 call install-win.bat
-call cd ..;
+CD ..;
 
 echo Installing MetaOpt...
-call cd metaopt
+CD metaopt
 call mvn clean install
-call cd ..
-
-echo "\ndone\n\n";
+CD ..
 
 IF "%~1"=="--with-gurobi" (
-	echo "Installing Gurobi..."
-	call cd gurobi
+	echo Installing Gurobi...
+	CD gurobi
 	call install-win.bat
 
-	echo "\ndone\n\nRebuilding metaopt using gurobi profile..."
-	call cd ../metaopt 
+	echo Rebuilding metaopt using gurobi profile...
+	CD ..\metaopt 
 	call %m2_home%\bin\mvn clean install -P gurobi
-	call cd ..
+	CD ..
 )
 
-echo "Metaopt installed\n"
+echo Metaopt installed
 
