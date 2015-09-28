@@ -30,25 +30,32 @@ if FOUND != 0 (
 
 
 echo Installing JOptimizer...
-CHDIR joptimizer-bundle
+cd joptimizer-bundle
 call install-win.bat
-CHDIR ..
+echo JOptimizer installed to local maven repo
 
 echo Installing MetaOpt...
-CHDIR metaopt
+cd ..\metaopt
 call %maven_bin% clean install
-CHDIR ..
+cd ..
 
-IF "%~1"=="--with-gurobi" (
+if "%~1"=="--with-gurobi" (
 	echo Installing Gurobi...
-	CHDIR gurobi
-	call install-win.bat
+	cd gurobi
+	call install-win.bat 
+	cd ..
 
-	echo Rebuilding metaopt using gurobi profile...
-	CHDIR ..\metaopt 
-	call %maven_bin% clean install -P gurobi
-	CHDIR ..
+	if "%GUROBI_INSTALL_ERR"=="0" (
+		echo Rebuilding metaopt using gurobi profile...
+		cd ..\metaopt 
+		call %maven_bin% clean install -P gurobi
+		echo Metaopt installed to local maven repo with gurobi support
+	) else (
+		echo ERROR: Metaopt did not install correctly due to problem installing gurobi plugin
+	)
+) else (
+	echo Metaopt installed to local maven repo
 )
 
-echo Metaopt installed
+
 
