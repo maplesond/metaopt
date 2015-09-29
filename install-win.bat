@@ -2,14 +2,11 @@
 
 set maven_bin="mvn"
 
-FOUND = where %maven_bin%
-
-if FOUND != 0 (
-
-	set maven_bin="mvn.bat"
-	FOUND = where %maven_bin%
-
-	if FOUND != 0 (
+WHERE %maven_bin%
+IF %ERRORLEVEL% NEQ 0 (
+	set maven_bin="mvn.bat"	
+	where %maven_bin%	
+	if %ERRORLEVEL% NEQ 0 (
 
 		if defined %m2_home% (
 			set maven_bin=%m2_home%\bin\mvn
@@ -23,9 +20,8 @@ if FOUND != 0 (
 		else (
 			echo Failed to find maven.  Please ensure both maven and JDK 1.8+ are installed correctly on your system.
 			exit 1
-		)		
+		)	
 	)
-
 )
 
 
