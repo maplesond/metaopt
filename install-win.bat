@@ -1,35 +1,39 @@
+REM installs metaopt and dependencies into the local maven repository
 @ECHO OFF
 
-set maven_bin="mvn"
+echo.
 
-WHERE %maven_bin%
-IF %ERRORLEVEL% NEQ 0 (
+set maven_bin="mvn"
+set errorlevel=0
+where %maven_bin%
+
+if %ERRORLEVEL% NEQ 0 (
 	set maven_bin="mvn.bat"	
 	where %maven_bin%	
 	if %ERRORLEVEL% NEQ 0 (
 
-		if defined %m2_home% (
+		if defined m2_home (
 			set maven_bin=%m2_home%\bin\mvn
-		)
-		else if defined %maven_home% (
+		) else if defined maven_home (
 			set maven_bin=%maven_home%\bin\mvn
-		)
-		else if defined %m2% (
+		) else if defined m2 (
 			set maven_bin=%m2%\mvn
-		)
-		else (
+		) else (
 			echo Failed to find maven.  Please ensure both maven and JDK 1.8+ are installed correctly on your system.
 			exit 1
 		)	
 	)
 )
 
-
+echo Detected maven executable successfully
+echo.
+echo.
 echo Installing JOptimizer...
 cd joptimizer-bundle
 call install-win.bat
 echo JOptimizer installed to local maven repo
-
+echo.
+echo.
 echo Installing MetaOpt...
 cd ..\metaopt
 call %maven_bin% clean install

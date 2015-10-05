@@ -21,7 +21,9 @@ Currently we support the following open source optimizers:
 Install
 -------
 
-First of all, make sure you have maven 3 and JDK 1.8 installed.  Next, it is necessary to install the optimizers you wish to use:
+First of all, make sure you have maven 3 and JDK 1.8 installed and your PATH environment variable updated.  Specifically, javac and mvn should be on your PATH, and M2_HOME and JAVA_HOME should be set to the respective installation directories.  
+
+Next, it is necessary to install the optimizers you wish to use:
 
 * Apache - Readily available from maven central. Will be automatically included.  No special steps necessary.
 * GLPK - Follow the installation instructions for install glpk for java V1.0.29.  Metaopt will then pick this up if installed correctly.
@@ -44,8 +46,4 @@ If using maven (which we strongly recommend), then you can simply add the follow
   </dependency>
 
 Otherwise you will need to copy the metaopt jar file, along with all dependencies into your classpath.
-
-Now some examples of how to create some simple problems and what the classes do...
-
-TODO
 
