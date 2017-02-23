@@ -4,6 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+<<<<<<< Updated upstream
     <parent>
         <groupId>uk.ac.uea.cmp.phygen</groupId>
         <artifactId>phygen</artifactId>
@@ -12,6 +13,11 @@
 
     <artifactId>gurobi</artifactId>
     <version>1.0-SNAPSHOT</version>
+=======
+    <groupId>uk.ac.earlham.metaopt</groupId>
+    <artifactId>gurobi</artifactId>
+    <version>0.3.0</version>
+>>>>>>> Stashed changes
     <packaging>jar</packaging>
 
     <name>Phylogenetics Tool Suite: Gurobi Optimiser</name>
@@ -36,9 +42,9 @@
         <developer>
             <id>maplesod</id>
             <name>Daniel Mapleson</name>
-            <email>daniel.mapleson@tgac.ac.uk</email>
-            <organization>TGAC</organization>
-            <organizationUrl>http://www.tgac.ac.uk</organizationUrl>
+            <email>daniel.mapleson@earlham.ac.uk</email>
+            <organization>Earlham Institute (EI)</organization>
+            <organizationUrl>http://www.earlham.ac.uk</organizationUrl>
             <roles>
                 <role>developer</role>
             </roles>
@@ -107,6 +113,18 @@
     </build>
     <dependencies>
 
+<<<<<<< Updated upstream
+=======
+        <!-- Metaopt -->
+
+        <dependency>
+            <groupId>uk.ac.earlham.metaopt</groupId>
+            <artifactId>metaopt</artifactId>
+            <version>0.3.0</version>
+        </dependency>
+
+
+>>>>>>> Stashed changes
 
         <!-- Testing -->
 

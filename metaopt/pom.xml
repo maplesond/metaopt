@@ -6,10 +6,14 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>uk.ac.tgac.metaopt</groupId>
+    <groupId>uk.ac.earlham.metaopt</groupId>
     <artifactId>metaopt</artifactId>
+<<<<<<< Updated upstream
     <version>0.1</version>
 
+=======
+    <version>0.3.0</version>
+>>>>>>> Stashed changes
 
 
     <name>MetaOpt: Meta Optimiser</name>
@@ -34,9 +38,9 @@
         <developer>
             <id>maplesod</id>
             <name>Daniel Mapleson</name>
-            <email>daniel.mapleson@tgac.ac.uk</email>
-            <organization>TGAC</organization>
-            <organizationUrl>http://www.tgac.ac.uk</organizationUrl>
+            <email>daniel.mapleson@earlham.ac.uk</email>
+            <organization>Earlham Institute (EI)</organization>
+            <organizationUrl>http://www.earlham.ac.uk</organizationUrl>
             <roles>
                 <role>developer</role>
             </roles>
@@ -44,6 +48,127 @@
 
     </developers>
 
+<<<<<<< Updated upstream
+=======
+    <profiles>
+
+        <profile>
+            <id>gurobi</id>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.7</version>
+                        <executions>
+                            <execution>
+                                <id>add-execute-perms</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <concat destFile="target/classes/META-INF/services/uk.ac.earlham.metaopt.Optimiser" append="true">uk.ac.earlham.metaopt.gurobi.Gurobi</concat>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+
+            <dependencies>
+                <dependency>
+                    <groupId>uk.ac.earlham.metaopt</groupId>
+                    <artifactId>gurobi</artifactId>
+                    <version>0.3.0</version>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>uk.ac.earlham.metaopt</groupId>
+                            <artifactId>metaopt</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+            </dependencies>
+
+        </profile>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>2.2.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.9.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <additionalparam>-Xdoclint:none</additionalparam>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.5</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>2.17</version>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.apache.maven.surefire</groupId>
+                                <artifactId>surefire-junit47</artifactId>
+                                <version>2.17</version>
+                            </dependency>
+                        </dependencies>
+                        <executions>
+                            <execution>
+                                <id>failsafe-integration-tests</id>
+                                <phase>integration-test</phase>
+                                <goals>
+                                    <goal>integration-test</goal>
+                                    <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+>>>>>>> Stashed changes
     <build>
         <plugins>
 

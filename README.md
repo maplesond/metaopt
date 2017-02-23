@@ -39,9 +39,13 @@ Usage
 If using maven, then you can simply add the following repository and dependency to your pom::
 
   <dependency>
-    <groupId>uk.ac.tgac.metaopt</groupId>
+    <groupId>uk.ac.ei.metaopt</groupId>
     <artifactId>metaopt</artifactId>
+<<<<<<< Updated upstream
     <version>0.1</version>
+=======
+    <version>0.3.0</version>
+>>>>>>> Stashed changes
   </dependency>
 
 Now some examples of how to create some simple problems and what the classes do...
