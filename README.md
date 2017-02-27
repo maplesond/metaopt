@@ -28,11 +28,6 @@ Next, it is necessary to install the optimizers you wish to use.  Apache and JOp
 * GLPK - Follow the installation instructions for install glpk for java V1.0.29.
 * Gurobi - Gurobi is commerical software so you will need to follow their installation instructions and in particular, ensure that the GRB_LICENSE_FILE and GUROBI_HOME environment variables are setup correctly.  Then you will need to install the gurobi.jar to your local maven repository.  A script to do this is provided in the gurobi sub-directory.
 
-* Apache - Readily available from maven central. Will be automatically included.  No special steps necessary.
-* GLPK - Follow the installation instructions for install glpk for java V1.0.29.  Metaopt will then pick this up if installed correctly.
-* JOptimizer - JOptimizer 3.4.0 is not available on a public maven repository so it is included within this distribution.  Will be automatically included.  No extra steps necessary.
-* Gurobi - Gurobi is commerical software so you will need to follow their installation instructions and in particular, ensure that the GRB_LICENSE_FILE and GUROBI_HOME environment variables are setup correctly.  In addition, you will need to instruct the install script that you wish to use gurobi, see below.
-
 Now that the optimizers are installed, you can install metaopt into your local maven repository by either typing in this directory "./install-linux.sh", or "./install-linux.sh --with-gurobi" if you wish to use gurobi.  If using windows replace "...-linux.sh with -win.bat".
 
 
