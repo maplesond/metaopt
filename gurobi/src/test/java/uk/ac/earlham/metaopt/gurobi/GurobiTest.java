@@ -2,15 +2,8 @@ package uk.ac.earlham.metaopt.gurobi;
 
 import org.junit.Before;
 import org.junit.Test;
-<<<<<<< Updated upstream:gurobi/src/test/java/uk/ac/tgac/metaopt/gurobi/GurobiTest.java
-import uk.ac.tgac.metaopt.*;
-import uk.ac.tgac.metaopt.Equality;
-import uk.ac.tgac.metaopt.test.Problems;
-import uk.ac.uea.cmp.phygen.core.math.*;
-=======
 import uk.ac.earlham.metaopt.*;
 import uk.ac.earlham.metaopt.test.Problems;
->>>>>>> Stashed changes:gurobi/src/test/java/uk/ac/earlham/metaopt/gurobi/GurobiTest.java
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assume.assumeTrue;
@@ -53,11 +46,8 @@ public class GurobiTest {
         assertTrue(gurobi.acceptsIdentifier("gurobi"));
         assertTrue(gurobi.acceptsIdentifier("Gurobi"));
         assertTrue(gurobi.acceptsIdentifier("GUROBI"));
-<<<<<<< Updated upstream:gurobi/src/test/java/uk/ac/tgac/metaopt/gurobi/GurobiTest.java
-        assertTrue(gurobi.acceptsIdentifier("uk.ac.uea.cmp.phygen.gurobi.Gurobi"));
-=======
         assertTrue(gurobi.acceptsIdentifier("Gurobi"));
->>>>>>> Stashed changes:gurobi/src/test/java/uk/ac/earlham/metaopt/gurobi/GurobiTest.java
+        assertTrue(gurobi.acceptsIdentifier("uk.ac.earlham.metaopt.gurobi.Gurobi"));
     }
 
 
@@ -123,8 +113,8 @@ public class GurobiTest {
         // Check result
         double[] vals = solution.getVariableValues();
 
-        assertTrue(uk.ac.uea.cmp.phygen.core.math.Equality.approxEquals(vals[0], 1.5));
-        assertTrue(uk.ac.uea.cmp.phygen.core.math.Equality.approxEquals(vals[1], 0.0));
+        assertTrue(Equality.approxEquals(vals[0], 1.5));
+        assertTrue(Equality.approxEquals(vals[1], 0.0));
         assertTrue(solution.getSolution() == 2.5);
     }
 
@@ -169,9 +159,9 @@ public class GurobiTest {
 
         // Check result
         double[] vals = solution.getVariableValues();
-        assertTrue(uk.ac.uea.cmp.phygen.core.math.Equality.approxEquals(vals[0], 0.5));
-        assertTrue(uk.ac.uea.cmp.phygen.core.math.Equality.approxEquals(vals[1], 0.5));
-        assertTrue(uk.ac.uea.cmp.phygen.core.math.Equality.approxEquals(solution.getSolution(), 0.7));
+        assertTrue(Equality.approxEquals(vals[0], 0.5));
+        assertTrue(Equality.approxEquals(vals[1], 0.5));
+        assertTrue(Equality.approxEquals(solution.getSolution(), 0.7));
     }
 
     /**
@@ -192,9 +182,9 @@ public class GurobiTest {
 
         // Check result
         double[] vals = solution.getVariableValues();
-        assertTrue(uk.ac.uea.cmp.phygen.core.math.Equality.approxEquals(vals[0], 0.0));
-        assertTrue(uk.ac.uea.cmp.phygen.core.math.Equality.approxEquals(vals[1], 1.0));
-        assertTrue(uk.ac.uea.cmp.phygen.core.math.Equality.approxEquals(vals[2], 2.0 / 3.0));
-        assertTrue(uk.ac.uea.cmp.phygen.core.math.Equality.approxEquals(solution.getSolution(), 2.1111111));
+        assertTrue(Equality.approxEquals(vals[0], 0.0));
+        assertTrue(Equality.approxEquals(vals[1], 1.0));
+        assertTrue(Equality.approxEquals(vals[2], 2.0 / 3.0));
+        assertTrue(Equality.approxEquals(solution.getSolution(), 2.1111111));
     }
 }

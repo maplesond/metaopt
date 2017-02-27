@@ -15,6 +15,8 @@
  */
 package uk.ac.earlham.metaopt.external;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.LogManager;
 import com.joptimizer.functions.ConvexMultivariateRealFunction;
 import com.joptimizer.functions.LinearMultivariateRealFunction;
 import com.joptimizer.functions.PDQuadraticMultivariateRealFunction;
@@ -251,6 +253,10 @@ public class JOptimizer extends AbstractOptimiser {
         com.joptimizer.optimizers.JOptimizer optimizer = new com.joptimizer.optimizers.JOptimizer();
         optimizer.setOptimizationRequest(or);
 
+        // JOptimizer spews out a lot of unnecessary info, don't output the debug info unless explicitly requested.
+        Level savedLevel = LogManager.getRootLogger().getLevel();
+        LogManager.getRootLogger().setLevel(Level.INFO);
+
         try {
             int returnCode = optimizer.optimize();
 
@@ -263,6 +269,9 @@ public class JOptimizer extends AbstractOptimiser {
         }
         catch (Exception e) {
             throw new OptimiserException(e, 1);
+        }
+        finally {
+            LogManager.getRootLogger().setLevel(savedLevel);
         }
 
     }

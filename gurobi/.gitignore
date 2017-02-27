@@ -1,4 +1,4 @@
 /target/
 /.idea/
-/gurobi.iml
+/*.iml
 /gurobi.jar

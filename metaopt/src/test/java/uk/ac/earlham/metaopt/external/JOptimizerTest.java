@@ -1,9 +1,16 @@
 package uk.ac.earlham.metaopt.external;
 
+import org.apache.log4j.AppenderSkeleton;
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
+import org.apache.log4j.spi.LoggingEvent;
 import org.junit.Before;
 import org.junit.Test;
 import uk.ac.earlham.metaopt.*;
 import uk.ac.earlham.metaopt.test.Problems;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assume.assumeTrue;
@@ -19,9 +26,34 @@ public class JOptimizerTest {
 
     private Optimiser jOptimizer = null;
 
+    private static class TestAppender extends AppenderSkeleton{
+
+        final List<LoggingEvent> log = new ArrayList<>();
+
+        @Override
+        protected void append(LoggingEvent loggingEvent) {
+            log.add(loggingEvent);
+        }
+
+        @Override
+        public boolean requiresLayout() {
+            return false;
+        }
+
+        @Override
+        public void close() {
+
+        }
+
+        public List<LoggingEvent> getLog() {
+            return new ArrayList<>(log);
+        }
+    }
+
     @Before
     public void setup() {
 
+        Logger.getRootLogger().addAppender(new TestAppender());
         boolean success = true;
         try {
             jOptimizer = new JOptimizer();

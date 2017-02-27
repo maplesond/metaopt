@@ -45,6 +45,11 @@ public class OptimiserFactory {
         return instance;
     }
 
+    public Optimiser createOptimiserInstance(String name) throws OptimiserException {
+
+        return this.createOptimiserInstance(name, null);
+    }
+
     public Optimiser createOptimiserInstance(String name, Objective.ObjectiveType objectiveType) throws OptimiserException {
 
         for (Optimiser optimiser : loader) {
@@ -52,7 +57,7 @@ public class OptimiserFactory {
             if (optimiser.acceptsIdentifier(name)) {
 
                 // Check if the requested objective is supported
-                if (!optimiser.acceptsObjectiveType(objectiveType))
+                if (objectiveType != null && !optimiser.acceptsObjectiveType(objectiveType))
                     throw new OptimiserException("Objective Type: " + objectiveType.toString() +
                             "; not accepted by " + optimiser.getIdentifier());
 

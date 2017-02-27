@@ -11,11 +11,18 @@
     <version>0.3.0</version>
 
     <name>MetaOpt: Meta Optimiser</name>
-
+    <description>Metaopt, is a library that provides a generic interface for describing mathematical optimisation problems.
+        It then translates these problems for a third party optimisation engine.  Several 3rd party optimisation engines
+        are supported.
+    </description>
+    <url>https://github.com/maplesond/metaopt</url>
+    <scm>
+        <url>https://github.com/maplesond/metaopt.git</url>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java-version>1.7</java-version>
+        <java-version>1.8</java-version>
     </properties>
 
     <!-- Licensing -->
@@ -291,7 +298,6 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.5</version>
         </dependency>
-
 
     </dependencies>
 
