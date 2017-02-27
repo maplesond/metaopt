@@ -1,6 +1,6 @@
 /*
  * Phylogenetics Tool suite
- * Copyright (C) 2013  UEA CMP Phylogenetics Group
+ * Copyright (C) 2017  UEA CMP Phylogenetics Group
  *
  * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
  * License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any
@@ -83,7 +83,7 @@ public class OptimiserFactory {
     /**
      * Goes through all optimisers found on the classpath and checks to see if they are operational.  Returns a list as
      * a string of all operational optimisers
-     *
+     * @param objectiveType The objective type to check with available optimisers.
      * @return A list of operational optimisers represented as a string
      */
     public String listOperationalOptimisersAsString(Objective.ObjectiveType objectiveType) {

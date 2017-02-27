@@ -1,11 +1,5 @@
 package uk.ac.earlham.metaopt.external;
 
-<<<<<<< Updated upstream:metaopt/src/test/java/uk/ac/tgac/metaopt/external/JOptimizerTest.java
-=======
-import org.apache.log4j.AppenderSkeleton;
-import org.apache.log4j.Logger;
-import org.apache.log4j.spi.LoggingEvent;
->>>>>>> Stashed changes:metaopt/src/test/java/uk/ac/earlham/metaopt/external/JOptimizerTest.java
 import org.junit.Before;
 import org.junit.Test;
 import uk.ac.earlham.metaopt.*;

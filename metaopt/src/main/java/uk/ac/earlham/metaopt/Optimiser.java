@@ -1,6 +1,6 @@
 /*
  * Phylogenetics Tool suite
- * Copyright (C) 2013  UEA CMP Phylogenetics Group
+ * Copyright (C) 2017  UEA CMP Phylogenetics Group
  *
  * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
  * License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any
@@ -21,9 +21,9 @@ public interface Optimiser {
     /**
      * Given a problem, finds the solution.
      *
-     * @param problem
+     * @param problem A description of the problem to solve
      * @return A solution to the problem that was posed.
-     * @throws OptimiserException
+     * @throws OptimiserException Thrown if any problems are encountered
      */
     Solution optimise(Problem problem) throws OptimiserException;
 
@@ -37,7 +37,7 @@ public interface Optimiser {
     /**
      * Whether or not this optimiser recognises the given id.
      *
-     * @param id
+     * @param id An identifier describing the optimiser to use
      * @return True if this optimiser recognises the identifier, false otherwise.
      */
     boolean acceptsIdentifier(String id);
@@ -45,7 +45,7 @@ public interface Optimiser {
     /**
      * Whether or not this optimiser can process a certain kind of objective.  i.e. linear or quadratic objectives
      *
-     * @param objectiveType
+     * @param objectiveType The objective type to check with this optimiser.
      * @return True, if this optimiser can accept this objective type, false otherwise.
      */
     boolean acceptsObjectiveType(Objective.ObjectiveType objectiveType);
@@ -53,7 +53,7 @@ public interface Optimiser {
     /**
      * Whether or not this optimiser can process a certain kind of constraint.  i.e. linear or quadratic constraints
      *
-     * @param constraintType
+     * @param constraintType The constraint type to check with this optimiser
      * @return True, if this optimiser can accept this constraint type, false otherwise.
      */
     boolean acceptsConstraintType(Constraint.ConstraintType constraintType);
@@ -61,7 +61,7 @@ public interface Optimiser {
 
     /**
      * Whether or not this optimiser can process a certain kind of variable.  i.e. continuous, float or binary
-     * @param variableType
+     * @param variableType The variable type to check with this optimiser.
      * @return True if this optimiser accepts this variable type, false otherwise.
      */
     boolean acceptsVariableType(Variable.VariableType variableType);
