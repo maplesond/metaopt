@@ -1,9 +1,6 @@
 #!/bin/bash
 
-echo -e "\n\nInstalling JOptimizer...\n"
-cd joptimizer-bundle; ./install-linux.sh; cd ..;
-
-echo -e "\ndone.\n\nInstalling MetaOpt...\n"
+echo -e "\nInstalling MetaOpt...\n"
 cd metaopt; mvn clean install; cd ..;
 
 echo -e "\ndone\n\n";
@@ -20,4 +17,3 @@ then
 fi
 
 echo -e "Metaopt installed\n"
-

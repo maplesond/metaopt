@@ -6,10 +6,9 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>uk.ac.tgac.metaopt</groupId>
+    <groupId>uk.ac.earlham.metaopt</groupId>
     <artifactId>metaopt</artifactId>
-    <version>0.2.0</version>
-
+    <version>0.4.0</version>
 
     <name>MetaOpt: Meta Optimiser</name>
     <description>Metaopt, is a library that provides a generic interface for describing mathematical optimisation problems.
@@ -40,9 +39,9 @@
         <developer>
             <id>maplesod</id>
             <name>Daniel Mapleson</name>
-            <email>daniel.mapleson@tgac.ac.uk</email>
-            <organization>TGAC</organization>
-            <organizationUrl>http://www.tgac.ac.uk</organizationUrl>
+            <email>daniel.mapleson@earlham.ac.uk</email>
+            <organization>Earlham Institute (EI)</organization>
+            <organizationUrl>http://www.earlham.ac.uk</organizationUrl>
             <roles>
                 <role>developer</role>
             </roles>
@@ -70,7 +69,7 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <concat destFile="target/classes/META-INF/services/uk.ac.tgac.metaopt.Optimiser" append="true">uk.ac.tgac.metaopt.gurobi.Gurobi</concat>
+                                        <concat destFile="target/classes/META-INF/services/uk.ac.earlham.metaopt.Optimiser" append="true">uk.ac.earlham.metaopt.gurobi.Gurobi</concat>
                                     </target>
                                 </configuration>
                             </execution>
@@ -81,12 +80,12 @@
 
             <dependencies>
                 <dependency>
-                    <groupId>uk.ac.tgac.metaopt</groupId>
+                    <groupId>uk.ac.earlham.metaopt</groupId>
                     <artifactId>gurobi</artifactId>
-                    <version>0.2.0</version>
+                    <version>0.3.0</version>
                     <exclusions>
                         <exclusion>
-                            <groupId>uk.ac.tgac.metaopt</groupId>
+                            <groupId>uk.ac.earlham.metaopt</groupId>
                             <artifactId>metaopt</artifactId>
                         </exclusion>
                     </exclusions>
@@ -101,7 +100,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>2.2.1</version>
+                        <version>3.0.1</version>
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
@@ -114,7 +113,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.9.1</version>
+                        <version>2.10.4</version>
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>
@@ -130,7 +129,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.5</version>
+                        <version>1.6</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
@@ -149,7 +148,7 @@
                             <dependency>
                                 <groupId>org.apache.maven.surefire</groupId>
                                 <artifactId>surefire-junit47</artifactId>
-                                <version>2.17</version>
+                                <version>2.18.1</version>
                             </dependency>
                         </dependencies>
                         <executions>
@@ -174,7 +173,7 @@
             <!-- Compiler settings -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>3.6.1</version>
                 <configuration>
                     <source>${java-version}</source>
                     <target>${java-version}</target>
@@ -189,25 +188,47 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.14.1</version>
+                <version>2.19.1</version>
             </plugin>
 
+            <!-- Creates a jar file containing the sources -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>create-sources-jar</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <!-- Creates javadoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <configuration>
+                    <additionalparam>-Xdoclint:none</additionalparam>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>create-javadoc-jar</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
 
     </build>
-
-
-
-    <!-- This remote repository holds the GLPK jar -->
-
-    <repositories>
-        <repository>
-            <id>XypronRelease</id>
-            <name>Xypron Release</name>
-            <url>http://rsync.xypron.de/repository</url>
-            <layout>default</layout>
-        </repository>
-    </repositories>
 
 
     <dependencies>
@@ -217,7 +238,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
 
@@ -227,8 +248,7 @@
         <dependency>
             <groupId>org.kohsuke.metainf-services</groupId>
             <artifactId>metainf-services</artifactId>
-            <version>1.5</version>
-            <optional>true</optional>
+            <version>1.7</version>
         </dependency>
 
 
@@ -237,24 +257,16 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-math3</artifactId>
-            <version>3.3</version>
-        </dependency>
-
-        <!-- GLPK - for java -->
-
-        <dependency>
-            <groupId>de.xypron.linopt</groupId>
-            <artifactId>linopt</artifactId>
-            <version>1.8</version>
+            <version>3.6.1</version>
         </dependency>
 
 
         <!-- JOptimizer -->
 
         <dependency>
-            <groupId>joptimizer</groupId>
+            <groupId>com.joptimizer</groupId>
             <artifactId>joptimizer</artifactId>
-            <version>3.4.0</version>
+            <version>3.5.1</version>
         </dependency>
 
 
@@ -263,7 +275,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.2</version>
+            <version>3.5</version>
         </dependency>
 
     </dependencies>

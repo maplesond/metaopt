@@ -27,13 +27,6 @@ if %ERRORLEVEL% NEQ 0 (
 
 echo Detected maven executable successfully
 echo.
-echo.
-echo Installing JOptimizer...
-cd joptimizer-bundle
-call install-win.bat
-echo JOptimizer installed to local maven repo
-echo.
-echo.
 echo Installing MetaOpt...
 cd ..\metaopt
 call %maven_bin% clean install
