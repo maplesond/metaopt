@@ -8,7 +8,7 @@
 
     <groupId>uk.ac.earlham.metaopt</groupId>
     <artifactId>metaopt</artifactId>
-    <version>0.3.0</version>
+    <version>0.4.0</version>
 
     <name>MetaOpt: Meta Optimiser</name>
     <description>Metaopt, is a library that provides a generic interface for describing mathematical optimisation problems.
@@ -231,19 +231,6 @@
     </build>
 
 
-
-    <!-- This remote repository holds the GLPK jar -->
-
-    <repositories>
-        <repository>
-            <id>XypronRelease</id>
-            <name>Xypron Release</name>
-            <url>http://rsync.xypron.de/repository</url>
-            <layout>default</layout>
-        </repository>
-    </repositories>
-
-
     <dependencies>
 
         <!-- Testing -->
@@ -271,14 +258,6 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-math3</artifactId>
             <version>3.6.1</version>
-        </dependency>
-
-        <!-- GLPK - for java -->
-
-        <dependency>
-            <groupId>de.xypron.linopt</groupId>
-            <artifactId>linopt</artifactId>
-            <version>1.17</version>
         </dependency>
 
 

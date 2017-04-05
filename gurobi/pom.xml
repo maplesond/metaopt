@@ -6,10 +6,10 @@
 
     <groupId>uk.ac.earlham.metaopt</groupId>
     <artifactId>gurobi</artifactId>
-    <version>0.3.0</version>
+    <version>0.4.0</version>
     <packaging>jar</packaging>
 
-    <name>Phylogenetics Tool Suite: Gurobi Optimiser</name>
+    <name>Metaopt: Gurobi Optimiser</name>
     <description>This is intended as a plugin for metaopt.  Because Gurobi is commerical software we can't assume users will
         have access.  Therefore, if users do have a gurobi license they can use this module to provide gurobi support for
         metaopt.
