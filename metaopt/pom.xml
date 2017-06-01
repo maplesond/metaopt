@@ -8,7 +8,7 @@
 
     <groupId>uk.ac.earlham.metaopt</groupId>
     <artifactId>metaopt</artifactId>
-    <version>0.4.0</version>
+    <version>1.0.0</version>
 
     <name>MetaOpt: Meta Optimiser</name>
     <description>Metaopt, is a library that provides a generic interface for describing mathematical optimisation problems.
@@ -82,7 +82,7 @@
                 <dependency>
                     <groupId>uk.ac.earlham.metaopt</groupId>
                     <artifactId>gurobi</artifactId>
-                    <version>0.3.0</version>
+                    <version>1.0.0</version>
                     <exclusions>
                         <exclusion>
                             <groupId>uk.ac.earlham.metaopt</groupId>

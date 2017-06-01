@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-@MetaInfServices(Optimiser.class)
+@MetaInfServices(uk.ac.earlham.metaopt.Optimiser.class)
 public class Apache extends AbstractOptimiser {
 
     protected static final double DEFAULT_TOLERANCE = 1e-9;
