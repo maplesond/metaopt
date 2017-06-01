@@ -30,7 +30,7 @@ import uk.ac.earlham.metaopt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@MetaInfServices(Optimiser.class)
+@MetaInfServices(uk.ac.earlham.metaopt.Optimiser.class)
 public class JOptimizer extends AbstractOptimiser {
 
     public JOptimizer() throws OptimiserException {

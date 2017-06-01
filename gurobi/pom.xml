@@ -6,7 +6,7 @@
 
     <groupId>uk.ac.earlham.metaopt</groupId>
     <artifactId>gurobi</artifactId>
-    <version>0.4.0</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>Metaopt: Gurobi Optimiser</name>
@@ -189,7 +189,7 @@
         <dependency>
             <groupId>uk.ac.earlham.metaopt</groupId>
             <artifactId>metaopt</artifactId>
-            <version>0.3.0</version>
+            <version>1.0.0</version>
         </dependency>
 
 

@@ -26,8 +26,9 @@ Next, it is necessary to install the optimizers you wish to use.  Apache and JOp
 
 * Gurobi - Gurobi is commerical software so you will need to follow their installation instructions and in particular, ensure that the GRB_LICENSE_FILE and GUROBI_HOME environment variables are setup correctly.  Then you will need to install the gurobi.jar to your local maven repository.  A script to do this is provided in the gurobi sub-directory.
 
-Now that the optimizers are installed, you can install metaopt into your local maven repository by either typing in this directory "./install-linux.sh", or "./install-linux.sh --with-gurobi" if you wish to use gurobi.  If using windows replace "...-linux.sh with -win.bat".
+Now that the optimizers are installed, you can install metaopt into your local maven repository by either typing in this directory "./install-linux.sh", or "./install-linux.sh --with-gurobi" if you wish to use gurobi. If using windows replace "...-linux.sh with -win.bat".
 
+IMPORTANT NOTE: If you are using a Mac then please use the install-linux script rather than install-windows.
 
 
 Usage
@@ -38,7 +39,7 @@ If using maven (which we strongly recommend), then you can simply add the follow
   <dependency>
     <groupId>uk.ac.earlham.metaopt</groupId>
     <artifactId>metaopt</artifactId>
-    <version>0.4.0</version>
+    <version>1.0.0</version>
   </dependency>
 
 Otherwise you will need to copy the metaopt jar file, along with all dependencies into your classpath.
